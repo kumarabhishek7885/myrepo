@@ -1,0 +1,74 @@
+========================================
+//getting the file names
+List<String> fileNames = FileManager.getAllFiles(folderpath);
+		
+for(String f:fileNames)
+System.out.println(f);
+
+=========================================
+//Add file code
+
+//Variables declaration
+		Scanner obj = new Scanner(System.in);
+		String fileName;
+		int linesCount;
+		List<String> content = new ArrayList<String>();
+				
+		//reading file name from user
+		System.out.println("Enter file Name:");
+		fileName=obj.nextLine();
+		
+		//Reading number of lines from user
+		System.out.println("Enter How Many lines in the file:");
+		linesCount = Integer.parseInt(obj.nextLine());
+		
+		//Reading lines from user
+		for(int i=1;i<=linesCount;i++)
+		{
+			System.out.println("Enter line "+i+":");
+			content.add(obj.nextLine());
+		}
+		
+		//Saving the content into the file
+		boolean isSaved= FileManager.createFiles(folderpath, fileName, content);
+		if(isSaved)
+			System.out.println("File and Data Svaed Successfully");
+		else
+			System.out.println("Some error occured. please contact Kumar.abhishek7885@gmail.com ");
+		
+		//closing the scanner object
+		obj.close();
+===================================================
+//Deleting the file
+	//code for deleting a file
+		String fileName;
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter File Name to be Deleted:");
+		fileName=obj.nextLine();
+		
+		//Deleting file
+		boolean isDeleted = FileManager.deleteFile(folderpath, fileName);
+		
+		if(isDeleted)
+			System.out.println("File Deleted successfully");
+		else
+			System.out.println("Either file not there or some access issues");
+==============================================================================================
+//search file
+//code for Searching a file
+				String fileName;
+				Scanner obj = new Scanner(System.in);
+				System.out.println("Enter File Name to be searched:");
+				fileName=obj.nextLine();
+				
+				//Searching file
+				boolean isFound = FileManager.searchFile(folderpath, fileName);
+				
+				if(isFound)
+					System.out.println("File is present in the folder");
+				else
+					System.out.println("File is not present in the folder");
+==============================================================================================
+
+
+

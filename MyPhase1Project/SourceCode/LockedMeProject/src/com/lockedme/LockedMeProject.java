@@ -68,9 +68,15 @@ public class LockedMeProject
 	{
 	//getting the file names
 	List<String> fileNames = FileManager.getAllFiles(folderpath);
-			
-	for(String f:fileNames)
-	System.out.println(f);
+	
+	if(fileNames.size()==0)
+		System.out.println("No Files in the Directory");
+	else
+	{
+		System.out.println("FILES LIST IS BELOW:");
+		for(String f:fileNames)
+			System.out.println(f);
+	}
 	}
 	
 	/**
@@ -102,7 +108,7 @@ public class LockedMeProject
 				//Saving the content into the file
 				boolean isSaved= FileManager.createFiles(folderpath, fileName, content);
 				if(isSaved)
-					System.out.println("File and Data Svaed Successfully");
+					System.out.println("File and Data Saved Successfully");
 				else
 					System.out.println("Some error occured. please contact Kumar.abhishek7885@gmail.com ");
 	}
